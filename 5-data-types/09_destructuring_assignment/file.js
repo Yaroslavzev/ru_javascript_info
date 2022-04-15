@@ -11,12 +11,6 @@
 //
 // let user = { name: "John", years: 30 };
 //
-// // ваш код должен быть с левой стороны:
-// // ... = user
-//
-// alert( name ); // John
-// alert( age ); // 30
-// alert( isAdmin ); // false
 
 // let user = {
 //     name: "John",
@@ -48,6 +42,24 @@ let salaries = {
     "Mary": 250
 };
 
-function topSalary(salaries) {
 
+function topSalary(salaries) {
+    if (!salaries) {
+        return null;
+    };
+
+    let max = 0;
+    let maxName = null;
+
+    for (let [name, salary] of Object.entries(salaries)) {
+        if (max < salary) {
+            max = salary;
+            maxName = name;
+        }
+    }
+
+    return maxName
 };
+
+alert(topSalary());
+alert(topSalary(salaries));
